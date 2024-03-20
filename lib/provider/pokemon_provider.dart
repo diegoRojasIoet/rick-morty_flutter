@@ -9,6 +9,7 @@ class PokemonProvider extends ChangeNotifier {
   }
 
   int pokemonId = 1;
+  final List<Pokemon> _pokemons = [];
 
   void getInitialPokemons() async {
     for (int i = 1; i <= 10; i++) {
@@ -25,7 +26,6 @@ class PokemonProvider extends ChangeNotifier {
     pokemonId = value;
   }
 
-  final List<Pokemon> _pokemons = [];
 
   void addPokemon(id) async {
     final pokemon = await PokemonServices.getPokemon(id);
