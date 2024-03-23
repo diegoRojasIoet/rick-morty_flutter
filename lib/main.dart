@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/provider/character_provider.dart';
 import 'package:pokemon_app/provider/pokemon_provider.dart';
+import 'package:pokemon_app/views/character_list_view.dart';
 import 'package:pokemon_app/views/views.dart';
 import 'package:provider/provider.dart';
 // import 'package:pokemon_app/views/counter_view.dart';
@@ -19,6 +21,10 @@ class AppState extends StatelessWidget {
           create: (_) => PokemonProvider(),
           lazy: false,
         ),
+        ChangeNotifierProvider(
+          create: (_) => CharacterProvider(),
+          lazy: false,
+        ),
       ],
       child: const MyApp(),
     );
@@ -36,10 +42,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: Colors.deepPurple,
       ),
-      initialRoute: "/splashScreen",
+      // initialRoute: "/splashScreen",
+      initialRoute: "/home",
       routes: {
         "/splashScreen": (context) => const SplashScreen(),
-        "/home": (context) => const PokemonListView(),
+        // "/home": (context) => const PokemonListView(),
+        "/home": (context) => const CharacterListView(),
         "/details": (context) => const PokemonDetails(),
       },
     );

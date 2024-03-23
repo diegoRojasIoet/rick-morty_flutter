@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/views/character_list_view.dart';
 import 'package:pokemon_app/views/views.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const PokemonListView()),
+        MaterialPageRoute(builder: (context) => const CharacterListView()),
       );
     });
   }
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/pokemon_logo.png'),
+          Image.asset('assets/good_wall.png'),
           const Text(
             'Loading',
             style: TextStyle(
