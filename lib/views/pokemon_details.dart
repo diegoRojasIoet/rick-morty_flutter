@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/model/pokemon_model.dart';
-import 'package:pokemon_app/utils/utils.dart';
+import 'package:rick_and_morty_app/model/pokemon_model.dart';
+import 'package:rick_and_morty_app/utils/utils.dart';
 
 class PokemonDetails extends StatelessWidget {
   const PokemonDetails({super.key});

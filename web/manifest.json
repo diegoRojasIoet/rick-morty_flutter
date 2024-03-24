@@ -1,6 +1,6 @@
 {
-    "name": "pokemon_app",
-    "short_name": "pokemon_app",
+    "name": "Rick_and_Morty_app",
+    "short_name": "Rick_and_Morty_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

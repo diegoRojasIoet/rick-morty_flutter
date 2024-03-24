@@ -1,4 +1,4 @@
-import 'package:pokemon_app/model/counter_model.dart';
+import 'package:rick_and_morty_app/model/counter_model.dart';
 
 class CounterViewModel {
   final CounterModel _counterModel = CounterModel();

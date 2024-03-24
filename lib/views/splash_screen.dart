@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/views/character_list_view.dart';
-import 'package:pokemon_app/views/views.dart';
+import 'package:rick_and_morty_app/views/character_list_view.dart';
+// import 'package:rick_and_morty_app/views/views.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/view_model/counter_view_model.dart';
+import 'package:rick_and_morty_app/view_model/counter_view_model.dart';
 
 class CounterView extends StatefulWidget {
   const CounterView({super.key});
