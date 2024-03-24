@@ -27,9 +27,9 @@ class CharacterCard extends StatelessWidget {
           ),
         ),
       ),
-      // onTap: () {
-      //   Navigator.pushNamed(context, "/details", arguments: pokemon);
-      // },
+      onTap: () {
+        Navigator.pushNamed(context, "/details", arguments: character);
+      },
     );
   }
 }
