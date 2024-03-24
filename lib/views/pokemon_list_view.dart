@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/provider/pokemon_provider.dart';
-import 'package:pokemon_app/widgets/pokemon_card.dart';
+import 'package:rick_and_morty_app/provider/pokemon_provider.dart';
+import 'package:rick_and_morty_app/widgets/pokemon_card.dart';
 import 'package:provider/provider.dart';
 
 class PokemonListView extends StatefulWidget {

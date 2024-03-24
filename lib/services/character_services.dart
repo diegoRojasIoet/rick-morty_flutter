@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:pokemon_app/model/character_model.dart';
+import 'package:rick_and_morty_app/model/character_model.dart';
 
 
 class CharacterServices {

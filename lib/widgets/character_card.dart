@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/model/character_model.dart';
-import 'package:pokemon_app/utils/utils.dart';
+import 'package:rick_and_morty_app/model/character_model.dart';
+import 'package:rick_and_morty_app/utils/utils.dart';
 
 class CharacterCard extends StatelessWidget {
   final Character character;
@@ -27,9 +27,9 @@ class CharacterCard extends StatelessWidget {
           ),
         ),
       ),
-      // onTap: () {
-      //   Navigator.pushNamed(context, "/details", arguments: pokemon);
-      // },
+      onTap: () {
+        Navigator.pushNamed(context, "/details", arguments: character);
+      },
     );
   }
 }

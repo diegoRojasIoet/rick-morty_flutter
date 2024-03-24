@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application android:usesCleartextTraffic="true"/>
    <application
-        android:label="pokemon_app"
+        android:label="Rick_and_Morty_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
