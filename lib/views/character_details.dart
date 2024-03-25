@@ -105,7 +105,7 @@ class _CharacterHeader extends StatelessWidget {
 
                     Directory capturesDirectory =
                         await FileSystemUtils.createLocalDirectory(
-                            'character_${character.id}');
+                            'pokemon_${character.id}');
 
                     String fileName = basename(pickedFile.path);
 
@@ -122,6 +122,7 @@ class _CharacterHeader extends StatelessWidget {
                     print(
                         "Saved Image Size: ${await File(destinationFile).length()} bytes");
                   },
+                   
                 ))
           ],
         ));
