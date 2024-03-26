@@ -3,6 +3,7 @@ import 'package:rick_and_morty_app/provider/character_provider.dart';
 import 'package:rick_and_morty_app/provider/pokemon_provider.dart';
 import 'package:rick_and_morty_app/views/character_details.dart';
 import 'package:rick_and_morty_app/views/character_list_view.dart';
+import 'package:rick_and_morty_app/views/my_character_view.dart';
 import 'package:rick_and_morty_app/views/views.dart';
 import 'package:provider/provider.dart';
 
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         "/home": (context) => const CharacterListView(),
         // "/details": (context) => const PokemonDetails(),
         "/details": (context) => const CharacterDetails(),
+       "/my-characters": (context) => const MyCharactersView(),
       },
     );
   }

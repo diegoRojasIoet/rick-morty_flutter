@@ -105,7 +105,7 @@ class _CharacterHeader extends StatelessWidget {
 
                     Directory capturesDirectory =
                         await FileSystemUtils.createLocalDirectory(
-                            'pokemon_${character.id}');
+                            'character_${character.id}');
 
                     String fileName = basename(pickedFile.path);
 
