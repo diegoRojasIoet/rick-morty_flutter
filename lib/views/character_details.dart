@@ -1,12 +1,12 @@
 import 'dart:io';
-
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
-
-import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/model/character_model.dart';
 import 'package:rick_and_morty_app/utils/file_system_utils.dart';
+import 'package:rick_and_morty_app/utils/permission_util.dart';
 import 'package:rick_and_morty_app/utils/utils.dart';
+
 
 class CharacterDetails extends StatelessWidget {
   const CharacterDetails({super.key});
