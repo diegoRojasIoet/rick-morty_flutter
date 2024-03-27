@@ -30,4 +30,14 @@ class FileSystemUtils {
     final Directory folderDirectory = Directory('${appDocDir?.path}/$folderName/');
     return folderDirectory.listSync().map((event) => event.path).toList();
   }
+
+  static Future<File> loadImageFromStorage(String imagePath) async {
+    File imageFile = File(imagePath);
+
+    if (imageFile.existsSync()) {
+      return imageFile;
+    } else {
+      return File('assets/default.jpeg');
+    }
+  }
 }

@@ -4,8 +4,9 @@ import 'package:rick_and_morty_app/utils/utils.dart';
 
 class CharacterCard extends StatelessWidget {
   final Character character;
+  final List<String> captures;
 
-  const CharacterCard({super.key, required this.character});
+  const CharacterCard({super.key, required this.character, required this.captures});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,11 @@ class CharacterCard extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Navigator.pushNamed(context, "/details", arguments: character);
+       Map<String, dynamic> arguments = {
+          'character': character,
+          'captures': captures,
+        };
+        Navigator.pushNamed(context, "/details", arguments: arguments);
       },
     );
   }

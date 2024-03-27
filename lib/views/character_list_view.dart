@@ -35,6 +35,8 @@ class _CharacterListViewState extends State<CharacterListView> {
                     itemBuilder: (context, index) {
                       return CharacterCard(
                         character: characterProvider.characters[index],
+                        // ignore: prefer_const_literals_to_create_immutables
+                        captures: [],
                       );
                     },
                   ),

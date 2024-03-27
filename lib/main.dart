@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/provider/character_provider.dart';
-import 'package:rick_and_morty_app/provider/pokemon_provider.dart';
 import 'package:rick_and_morty_app/views/character_details.dart';
-import 'package:rick_and_morty_app/views/character_list_view.dart';
 import 'package:rick_and_morty_app/views/my_character_view.dart';
 import 'package:rick_and_morty_app/views/views.dart';
 import 'package:provider/provider.dart';
@@ -18,11 +16,7 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => PokemonProvider(),
-          lazy: false,
-        ),
-        ChangeNotifierProvider(
+       ChangeNotifierProvider(
           create: (_) => CharacterProvider(),
           lazy: false,
         ),

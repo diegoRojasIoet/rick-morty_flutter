@@ -33,6 +33,7 @@ class _MyCharactersViewBodyState extends State<MyCharactersViewBody> {
               itemBuilder: (context, index) {
                 return CharacterCard(
                   character: viewModel.charactersCaptures[index].character,
+                  captures: viewModel.charactersCaptures[index].captures,
                 );
               },
             ),
