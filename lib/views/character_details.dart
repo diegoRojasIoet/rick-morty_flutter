@@ -1,19 +1,23 @@
 import 'dart:io';
-
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
-
-import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/model/character_model.dart';
 import 'package:rick_and_morty_app/utils/file_system_utils.dart';
+import 'package:rick_and_morty_app/utils/permission_util.dart';
 import 'package:rick_and_morty_app/utils/utils.dart';
+import 'package:rick_and_morty_app/widgets/character_images_slider.dart';
+
 
 class CharacterDetails extends StatelessWidget {
   const CharacterDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final character = ModalRoute.of(context)!.settings.arguments as Character;
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final character = arguments['character'];
+    final captures = arguments['captures'];
 
     return Scaffold(
         appBar: AppBar(
@@ -22,7 +26,7 @@ class CharacterDetails extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              _CharacterHeader(character: character),
+              _CharacterHeader(character: character, captures: captures),
               Text(
                 capitalize(character.name),
                 style: const TextStyle(
@@ -68,11 +72,13 @@ class CharacterDetails extends StatelessWidget {
 }
 
 class _CharacterHeader extends StatelessWidget {
+  final Character character;
+  final List<String> captures;
+
   const _CharacterHeader({
     required this.character,
+    required this.captures,
   });
-
-  final Character character;
 
   @override
   Widget build(BuildContext context) {
@@ -83,12 +89,14 @@ class _CharacterHeader extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-                child: Image(
-              image: NetworkImage(character.image),
-              fit: BoxFit.fill,
-              height: 160,
-              width: 180,
-            )),
+              child: captures.isEmpty
+                ? Image(
+                    image: NetworkImage(character.image),
+                    fit: BoxFit.fill,
+                    height: 160,
+                    width: 180,
+                  )
+                : CharacterImagesSlider(imagesPath: captures)),
             Positioned(
                 top: 0,
                 right: 0,
@@ -97,6 +105,8 @@ class _CharacterHeader extends StatelessWidget {
                   color: Colors.white,
                   iconSize: 50,
                   onPressed: () async {
+                    bool canUseCamera = await checkAndAskCameraPermission();
+                    if (!canUseCamera) return;
                     final picker = ImagePicker();
                     final XFile? pickedFile = await picker.pickImage(
                       source: ImageSource.camera,
@@ -105,7 +115,7 @@ class _CharacterHeader extends StatelessWidget {
 
                     Directory capturesDirectory =
                         await FileSystemUtils.createLocalDirectory(
-                            'pokemon_${character.id}');
+                            'character_${character.id}');
 
                     String fileName = basename(pickedFile.path);
 

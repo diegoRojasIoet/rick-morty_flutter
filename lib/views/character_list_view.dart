@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/provider/character_provider.dart';
 import 'package:rick_and_morty_app/widgets/character_card.dart';
 import 'package:provider/provider.dart';
+import 'package:rick_and_morty_app/widgets/my_character_button.dart';
 
 class CharacterListView extends StatefulWidget {
   const CharacterListView({super.key});
@@ -24,14 +25,37 @@ class _CharacterListViewState extends State<CharacterListView> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.builder(
-              itemCount: characterProvider.characters.length,
-              itemBuilder: (context, index) {
-                return CharacterCard(
-                  character: characterProvider.characters[index],
-                );
-              },
+         : SingleChildScrollView(
+              child: Column(
+                children: [
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: characterProvider.characters.length,
+                    itemBuilder: (context, index) {
+                      return CharacterCard(
+                        character: characterProvider.characters[index],
+                        // ignore: prefer_const_literals_to_create_immutables
+                        captures: [],
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  MyCharacterButton(
+                    onTap: () => Navigator.pushNamed(context, "/my-characters")
+                  ),
+                  const SizedBox(height: 50),
+                ],
+              ),
             ),
+          // : ListView.builder(
+          //     itemCount: characterProvider.characters.length,
+          //     itemBuilder: (context, index) {
+          //       return CharacterCard(
+          //         character: characterProvider.characters[index],
+          //       );
+          //     },
+          //   ),
       floatingActionButton: CustomFloatingActionButton(
           icon: Icons.add,
           onPressed: () {
